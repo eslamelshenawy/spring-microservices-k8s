@@ -73,6 +73,9 @@ cd ./scripts/
 cd ./scripts/
 ./stop-cluster.sh
 ```
+```bash
+ sudo chmod 777 -R  scripts
+```
 
 #### link swagger
 

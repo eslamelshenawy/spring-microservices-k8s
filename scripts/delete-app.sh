@@ -22,6 +22,11 @@ kubectl delete -n $NAMESPACE_ORGANIZATION service organization
 kubectl delete -n $NAMESPACE_ORGANIZATION secret organization
 kubectl delete -n $NAMESPACE_ORGANIZATION configmap organization
 
+kubectl delete -n $NAMESPACE_USER deployment user
+kubectl delete -n $NAMESPACE_USER service user
+kubectl delete -n $NAMESPACE_USER secret user
+kubectl delete -n $NAMESPACE_USER configmap user
+
 kubectl delete -n $NAMESPACE_EMPLOYEE deployment employee
 kubectl delete -n $NAMESPACE_EMPLOYEE service employee
 kubectl delete -n $NAMESPACE_EMPLOYEE secret employee

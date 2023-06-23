@@ -25,6 +25,12 @@ curl -X POST "$(minikube service organization --url -n $NAMESPACE_ORGANIZATION)/
 # get organization
 http $(minikube service organization --url -n $NAMESPACE_ORGANIZATION)/1/with-employees
 
+# add user
+curl -X POST "$(minikube service user --url -n $NAMESPACE_USER)/" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"name\": \"test\", \"id\": \"1\", \"email\": \"test@gmail.com\", \"phone\": \"01009739491\"}"
+
+# get user
+http $(minikube service user --url -n $NAMESPACE_USER)/1
+
 # get via gatway:nodeport
 #GATEWAY_NODEPORT=$(kubectl get -o jsonpath="{.spec.ports[0].nodePort}" services gateway -n $NAMESPACE_GATEWAY)
 #http http://microservices-cluster.info:${GATEWAY_NODEPORT}/employee/

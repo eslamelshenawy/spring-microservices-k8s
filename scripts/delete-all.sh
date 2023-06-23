@@ -13,3 +13,4 @@ set -x
 #docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'vmware/employee:1.1')
 #docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'vmware/gateway:1.1')
 #docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'vmware/organization:1.1')
+#docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'vmware/user:1.1')

@@ -35,6 +35,13 @@ spec:
             port:
               number: 8080
         pathType: Prefix
+      - path: /user
+        backend:
+           service:
+            name: user
+            port:
+              number: 8080
+        pathType: Prefix
       - path: /gateway
         backend:
           service:

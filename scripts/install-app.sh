@@ -17,6 +17,9 @@ kubectl apply -n $NAMESPACE_DEPARTMENT -f department-deployment.yaml
 kubectl apply -n $NAMESPACE_ORGANIZATION -f organization-configmap.yaml
 kubectl apply -n $NAMESPACE_ORGANIZATION -f organization-secret.yaml
 kubectl apply -n $NAMESPACE_ORGANIZATION -f organization-deployment.yaml
+kubectl apply -n $NAMESPACE_USER -f user-configmap.yaml
+kubectl apply -n $NAMESPACE_USER -f user-secret.yaml
+kubectl apply -n $NAMESPACE_USER -f user-deployment.yaml
 kubectl apply -n $NAMESPACE_GATEWAY -f gateway-configmap.yaml
 kubectl apply -n $NAMESPACE_GATEWAY -f gateway-deployment.yaml
 kubectl apply -n $NAMESPACE_GATEWAY -f ingress.yaml

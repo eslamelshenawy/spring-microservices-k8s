@@ -33,6 +33,10 @@ cd employee-service
 docker build -t vmware/employee:1.1 .
 cd ..
 
+cd user-service
+docker build -t vmware/user:1.1 .
+cd ..
+
 docker images
 
 cd scripts

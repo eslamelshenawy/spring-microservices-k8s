@@ -11,6 +11,7 @@ kubectl create namespace $NAMESPACE_DEPARTMENT
 kubectl create namespace $NAMESPACE_EMPLOYEE
 kubectl create namespace $NAMESPACE_GATEWAY
 kubectl create namespace $NAMESPACE_ORGANIZATION
+kubectl create namespace $NAMESPACE_USER
 kubectl create namespace $NAMESPACE_MONGO
 
 # create clusterRole
@@ -21,6 +22,7 @@ kubectl create serviceaccount $SA_NAME -n $NAMESPACE_DEPARTMENT
 kubectl create serviceaccount $SA_NAME -n $NAMESPACE_EMPLOYEE
 kubectl create serviceaccount $SA_NAME -n $NAMESPACE_GATEWAY
 kubectl create serviceaccount $SA_NAME -n $NAMESPACE_ORGANIZATION
+kubectl create serviceaccount $SA_NAME -n $NAMESPACE_USER
 kubectl create serviceaccount $SA_NAME -n $NAMESPACE_MONGO
 
 # bind service accounts to clusterRole
@@ -28,6 +30,7 @@ kubectl create clusterrolebinding service-pod-reader-$NAMESPACE_DEPARTMENT --clu
 kubectl create clusterrolebinding service-pod-reader-$NAMESPACE_EMPLOYEE --clusterrole=microservices-kubernetes-namespace-reader --serviceaccount=$NAMESPACE_EMPLOYEE:$SA_NAME
 kubectl create clusterrolebinding service-pod-reader-$NAMESPACE_GATEWAY --clusterrole=microservices-kubernetes-namespace-reader --serviceaccount=$NAMESPACE_GATEWAY:$SA_NAME
 kubectl create clusterrolebinding service-pod-reader-$NAMESPACE_ORGANIZATION --clusterrole=microservices-kubernetes-namespace-reader --serviceaccount=$NAMESPACE_ORGANIZATION:$SA_NAME
+kubectl create clusterrolebinding service-pod-reader-$NAMESPACE_USER --clusterrole=microservices-kubernetes-namespace-reader --serviceaccount=$NAMESPACE_USER:$SA_NAME
 kubectl create clusterrolebinding service-pod-reader-$NAMESPACE_MONGO --clusterrole=microservices-kubernetes-namespace-reader --serviceaccount=$NAMESPACE_MONGO:$SA_NAME
 
 

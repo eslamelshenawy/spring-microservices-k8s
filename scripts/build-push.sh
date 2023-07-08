@@ -34,6 +34,11 @@ docker build -f ${DEBUG_DOCKERFILE_NAME} -t vmware/organization${DEBUG_IMAGE_SUF
 docker tag vmware/organization${DEBUG_IMAGE_SUFFIX}:$APP_VER $REPO_USER/organization${DEBUG_IMAGE_SUFFIX}:$APP_VER
 docker push $REPO_USER/organization${DEBUG_IMAGE_SUFFIX}:$APP_VER
 
+cd ../$SCRIPT_DIR/user-service
+docker build -f ${DEBUG_DOCKERFILE_NAME} -t vmware/user${DEBUG_IMAGE_SUFFIX}:$APP_VER .
+docker tag vmware/user${DEBUG_IMAGE_SUFFIX}:$APP_VER $REPO_USER/user${DEBUG_IMAGE_SUFFIX}:$APP_VER
+docker push $REPO_USER/user${DEBUG_IMAGE_SUFFIX}:$APP_VER
+
 cd ../$SCRIPT_DIR/gateway-service
 docker build -f ${DEBUG_DOCKERFILE_NAME} -t vmware/gateway${DEBUG_IMAGE_SUFFIX}:$APP_VER .
 docker tag vmware/gateway${DEBUG_IMAGE_SUFFIX}:$APP_VER $REPO_USER/gateway${DEBUG_IMAGE_SUFFIX}:$APP_VER

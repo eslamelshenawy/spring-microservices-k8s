@@ -15,33 +15,24 @@ spec:
         app: gateway
     spec:
       containers:
-      - name: gateway
-        image: vmware/gateway:1.1
-        ports:
-          - containerPort: 8080
-        resources:
-          requests:
-            cpu: "0.2"
-            memory: 300Mi
-          limits:
-            cpu: "1.0"
-            memory: 300Mi
-        readinessProbe:
-          httpGet:
-            port: 8080
-            path: /actuator/health
-          initialDelaySeconds: 60
-          timeoutSeconds: 2
-          periodSeconds: 20
-          failureThreshold: 5
-        livenessProbe:
-          httpGet:
-            port: 8080
-            path: /actuator/info
-          initialDelaySeconds: 60
-          timeoutSeconds: 2
-          periodSeconds: 20
-          failureThreshold: 5
+        - name: gateway
+          image: vmware/gateway:1.1
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: 300Mi
+            limits:
+              cpu: "1.0"
+              memory: 300Mi
+          volumeMounts:
+            - name: mongodb
+              mountPath: /etc/secretspot
+      volumes:
+        - name: mongodb
+          secret:
+            secretName: gateway
       serviceAccountName: api-service-account
 ---
 apiVersion: v1
@@ -52,9 +43,9 @@ metadata:
     app: gateway
 spec:
   ports:
-  - port: 8080
-    protocol: TCP
-    targetPort: 8080
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
   selector:
     app: gateway
   type: LoadBalancer

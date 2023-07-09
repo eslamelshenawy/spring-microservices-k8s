@@ -14,20 +14,6 @@ spec:
   - host: microservices-cluster.info
     http:
       paths:
-      - path: /employee
-        backend:
-          service:
-            name: employee
-            port:
-              number: 8080
-        pathType: Prefix
-      - path: /department
-        backend:
-          service:
-            name: department
-            port:
-              number: 8080      
-        pathType: Prefix
       - path: /organization
         backend:
            service:

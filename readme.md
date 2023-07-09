@@ -39,11 +39,11 @@ cd ./scripts/
 ```bash
 minikube dashboard
 ```
-### Observe Employee service logs
+### Observe service logs
 
 ```bash
 cd ./scripts/
-./employee-log.sh
+./user-log.sh
 ```
 
 ### Open Swagger UI web interface
@@ -81,8 +81,8 @@ cd ./scripts/
 
 http://127.0.0.1:8080/swagger-ui.html
 
-###  employee
-http://127.0.0.1:8080/employee
+###  user
+http://127.0.0.1:8080/user
 
 
 

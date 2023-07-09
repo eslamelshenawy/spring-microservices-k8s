@@ -13,8 +13,6 @@ public class Organization {
 	private String id;
 	private String name;
 	private String address;
-	private List<Department> departments = new ArrayList<>();
-	private List<Employee> employees = new ArrayList<>();
 
 	public Organization() {
 
@@ -49,21 +47,7 @@ public class Organization {
 		this.address = address;
 	}
 
-	public List<Department> getDepartments() {
-		return departments;
-	}
 
-	public void setDepartments(List<Department> departments) {
-		this.departments = departments;
-	}
-
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
 
 	@Override
 	public String toString() {

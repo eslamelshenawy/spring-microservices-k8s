@@ -16,9 +16,6 @@ docker images
 
 mvn clean
 
-cd department-service
-docker build -t vmware/department:1.1 .
-cd ..
 
 cd gateway-service
 docker build -t vmware/gateway:1.1 .
@@ -27,12 +24,6 @@ cd ..
 cd organization-service
 docker build -t vmware/organization:1.1 .
 cd ..
-
-
-cd employee-service
-docker build -t vmware/employee:1.1 .
-cd ..
-
 cd user-service
 docker build -t vmware/user:1.1 .
 cd ..

@@ -37,9 +37,4 @@ public class User {
 	private String password;
 	private String fullname;
 	private boolean enabled;
-
-	private Set<Role> roles;
-	private List<Department> departments = new ArrayList<>();
-	private List<Employee> employees = new ArrayList<>();
-
 }

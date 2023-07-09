@@ -10,6 +10,7 @@ import vmware.services.user.repository.UserRepository;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/user") // Requests made to /api/auth/anything will be handles by this class
 public class UserController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);

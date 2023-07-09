@@ -1,5 +1,6 @@
 package vmware.services.user.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,8 +35,8 @@ public class User {
 
 	@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
 	private String email;
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String password;
 	private String fullname;
 	private boolean enabled;
-	private Set<Role> roles;
 }

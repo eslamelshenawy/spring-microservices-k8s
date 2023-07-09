@@ -2,7 +2,6 @@
 
 #set -x
 
-export NAMESPACE_GATEWAY=gateway
 export NAMESPACE_ORGANIZATION=organization
 export NAMESPACE_USER=user
 export NAMESPACE_MONGO=mongo

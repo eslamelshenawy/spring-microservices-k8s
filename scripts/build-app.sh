@@ -16,11 +16,6 @@ docker images
 
 mvn clean
 
-
-cd gateway-service
-docker build -t vmware/gateway:1.1 .
-cd ..
-
 cd organization-service
 docker build -t vmware/organization:1.1 .
 cd ..

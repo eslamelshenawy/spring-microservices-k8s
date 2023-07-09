@@ -9,7 +9,6 @@
 	<modules>
 		<module>organization-service</module>
 		<module>user-service</module>
-		<module>gateway-service</module>
     </modules>
 	
 </project>

@@ -1,11 +1,20 @@
 package vmware.services.organization.model;
 
+import io.fabric8.openshift.api.model.User;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Document(collection = "organization")
 public class Organization {
 
@@ -13,45 +22,6 @@ public class Organization {
 	private String id;
 	private String name;
 	private String address;
-
-	public Organization() {
-
-	}
-	
-	public Organization(String name, String address) {
-		this.name = name;
-		this.address = address;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Organization [id=" + id + ", name=" + name + ", address=" + address + "]";
-	}
+	private List<User> users = new ArrayList<>();
 
 }

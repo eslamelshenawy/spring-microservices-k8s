@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import vmware.services.gateway.dto.UserDto;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +26,10 @@ public class User {
 	@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
 	private String email;
 	private String password;
-	private String fullname;
-	private boolean enabled;
+	private String name;
+//	private boolean enabled;
+
+	public UserDto mapUsertoUserDto() {
+		return new UserDto(id, email, name);
+	}
 }

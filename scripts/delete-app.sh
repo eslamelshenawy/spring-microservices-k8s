@@ -10,6 +10,7 @@ kubectl config use-context $CLUSTER1_NAME
 kubectl delete -n $NAMESPACE_GATEWAY deployment gateway
 kubectl delete -n $NAMESPACE_GATEWAY service gateway
 kubectl delete -n $NAMESPACE_GATEWAY configmap gateway
+kubectl delete -n $NAMESPACE_GATEWAY secret gateway
 kubectl delete -n $NAMESPACE_GATEWAY ingress gateway-ingress
 
 

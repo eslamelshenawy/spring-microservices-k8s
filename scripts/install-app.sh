@@ -19,6 +19,7 @@ kubectl apply -n $NAMESPACE_USER -f user-secret.yaml
 kubectl apply -n $NAMESPACE_USER -f user-deployment.yaml
 kubectl apply -n $NAMESPACE_GATEWAY -f gateway-configmap.yaml
 kubectl apply -n $NAMESPACE_GATEWAY -f gateway-deployment.yaml
+kubectl apply -n $NAMESPACE_GATEWAY -f gateway-secret.yaml
 kubectl apply -n $NAMESPACE_GATEWAY -f ingress.yaml
 
 # set Minikupe IP for microservices-cluster.info in /etc/hosts

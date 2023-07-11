@@ -32,7 +32,7 @@ public class UserController {
 	@GetMapping("/{id}")
 	public User findById(@PathVariable("id") String id) {
 		LOGGER.info("User find: id={}", id);
-		return repository.findById(id).get();
+		return repository.findById(Integer.valueOf(id)).get();
 	}
 
 }

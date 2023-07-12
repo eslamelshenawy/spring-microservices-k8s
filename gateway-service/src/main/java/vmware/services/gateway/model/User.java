@@ -1,35 +1,67 @@
 package vmware.services.gateway.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.IndexDirection;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 import vmware.services.gateway.dto.UserDto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-@Document(collection = "users")
+@Entity
+@Table(name = "users")
 public class User {
-	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	private Long id;
 
-	@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-	private String email;
-	private String password;
-	private String name;
-//	private boolean enabled;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public UserDto mapUsertoUserDto() {
-		return new UserDto(id, email, name);
-	}
+    private String email;
+
+    private String password;
+
+    private String name;
+
+    public User() {
+    }
+
+    public User(String email, String password, String name) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public UserDto mapUsertoUserDto() {
+        return new UserDto(id, email, name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

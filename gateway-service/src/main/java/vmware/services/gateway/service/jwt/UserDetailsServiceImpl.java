@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import vmware.services.gateway.model.User;
-import vmware.services.gateway.repository.UserRepository;
+import vmware.services.gateway.repository.UserRepo;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepo;
+    private UserRepo userRepo;
 
 
     @Override

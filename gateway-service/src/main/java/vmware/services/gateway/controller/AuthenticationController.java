@@ -8,16 +8,14 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import vmware.security.JWTUtil;
+import org.springframework.web.bind.annotation.*;
 import vmware.services.gateway.dto.AuthenticationRequest;
 import vmware.services.gateway.dto.AuthenticationResponse;
 import vmware.services.gateway.model.User;
-import vmware.services.gateway.repository.UserRepository;
+import vmware.services.gateway.repository.UserRepo;
 import vmware.services.gateway.service.jwt.UserDetailsServiceImpl;
 import vmware.services.gateway.service.user.UserService;
+import vmware.services.gateway.util.JwtUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
@@ -26,17 +24,17 @@ import java.io.IOException;
 @RestController
 public class AuthenticationController {
 
-
+    @Autowired
     private AuthenticationManager authenticationManager;
 
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-
-    private JWTUtil jwtUtil;
+    @Autowired
+    private JwtUtil jwtUtil;
 
     @Autowired
-    private UserRepository userRepo;
+    private UserRepo userRepo;
 
     @Autowired
     private UserService userService;
@@ -60,7 +58,7 @@ public class AuthenticationController {
         User user = userRepo.findFirstByEmail(authenticationRequest.getUsername());
 
 
-        final String jwt = jwtUtil.generateToken(String.valueOf(userDetails));
+        final String jwt = jwtUtil.generateToken(userDetails);
 
         return new AuthenticationResponse(jwt);
 

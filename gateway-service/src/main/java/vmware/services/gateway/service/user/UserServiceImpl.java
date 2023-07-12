@@ -3,19 +3,20 @@ package vmware.services.gateway.service.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import vmware.services.gateway.dto.SignupRequest;
 import vmware.services.gateway.dto.UserDto;
 import vmware.services.gateway.model.User;
-import vmware.services.gateway.repository.UserRepository;
+import vmware.services.gateway.repository.UserRepo;
+import vmware.services.gateway.service.user.UserService;
 
+import javax.transaction.Transactional;
 
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserRepository userRepo;
+    private UserRepo userRepo;
 
     @Transactional
     public UserDto createUser(SignupRequest signupRequest) throws Exception {
@@ -23,6 +24,7 @@ public class UserServiceImpl implements UserService{
         user.setEmail(signupRequest.getEmail());
         user.setName(signupRequest.getName());
         user.setPassword(new BCryptPasswordEncoder().encode(signupRequest.getPassword()));
+
         user = userRepo.save(user);
         if (user == null)
             return  null;

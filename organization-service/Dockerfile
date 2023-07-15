@@ -1,42 +1,23 @@
-ARG MVN_VERSION=3.6.3
-ARG JDK_VERSION=11
+FROM maven:3.8.5-openjdk-11 AS maven_build
 
-FROM maven:${MVN_VERSION}-jdk-${JDK_VERSION}-slim as build
+COPY pom.xml /tmp/
 
-WORKDIR /build
-COPY pom.xml .
-# create a layer with all of the Manven dependencies, first time it takes a while consequent call are very fast
-RUN mvn dependency:go-offline
+COPY src /tmp/src/
 
-COPY ./pom.xml /tmp/
-COPY ./src /tmp/src/
 WORKDIR /tmp/
-# build the project
-RUN mvn clean package
 
-# extract JAR Layers
-WORKDIR /tmp/target
-RUN java -Djarmode=layertools -jar *.jar extract
+RUN mvn package
 
-# runtime image
-FROM gcr.io/distroless/java:${JDK_VERSION} as runtime
+#pull base image
 
-USER nonroot:nonroot
-WORKDIR /application
+FROM eclipse-temurin:11
 
-# copy layers from build image to runtime image as nonroot user
-COPY --from=build --chown=nonroot:nonroot /tmp/target/dependencies/ ./
-COPY --from=build --chown=nonroot:nonroot /tmp/target/snapshot-dependencies/ ./
-COPY --from=build --chown=nonroot:nonroot /tmp/target/spring-boot-loader/ ./
-COPY --from=build --chown=nonroot:nonroot /tmp/target/application/ ./
-
+#expose port 8080
 EXPOSE 8080
 
-ENV _JAVA_OPTIONS "-XX:MinRAMPercentage=60.0 -XX:MaxRAMPercentage=90.0 \
--Djava.security.egd=file:/dev/./urandom \
--Djava.awt.headless=true -Dfile.encoding=UTF-8 \
--Dspring.output.ansi.enabled=ALWAYS \
--Dspring.profiles.active=default"
+#default command
+CMD java -jar /data/organization-service-1.1.jar
 
-# set entrypoint to layered Spring Boot application
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+#copy vmware to docker image from builder image
+
+COPY --from=maven_build /tmp/target/organization-service-1.1.jar /data/organization-service-1.1.jar

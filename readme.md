@@ -79,10 +79,10 @@ cd ./scripts/
 
 #### link swagger
 
-http://127.0.0.1:8080/swagger-ui.html
+http://10.98.179.237:8080/swagger-ui.html
 
 ###  user
-http://127.0.0.1:8080/user
+http://10.98.179.237:8080/user
 
 ```bash
 dos2unix start-cluster.sh 

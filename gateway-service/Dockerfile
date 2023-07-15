@@ -1,4 +1,8 @@
 FROM maven:3.8.5-openjdk-11 AS maven_build
+WORKDIR /build
+COPY pom.xml .
+# create a layer with all of the Manven dependencies, first time it takes a while consequent call are very fast
+RUN mvn dependency:go-offline
 
 COPY pom.xml /tmp/
 

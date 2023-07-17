@@ -1,23 +1,29 @@
-FROM maven:3.8.5-openjdk-11 AS maven_build
+#FROM maven:3.8.5-openjdk-11 AS maven_build
+#
+#COPY pom.xml /tmp/
+#
+#COPY src /tmp/src/
+#
+#WORKDIR /tmp/
+#
+#RUN mvn package
+#
+##pull base image
+#
+#FROM eclipse-temurin:11
+#
+##expose port 8080
+#EXPOSE 8080
+#
+##default command
+#CMD java -jar /data/organization-service-1.1.jar
+#
+##copy vmware to docker image from builder image
+#
+#COPY --from=maven_build /tmp/target/organization-service-1.1.jar /data/organization-service-1.1.jar
 
-COPY pom.xml /tmp/
-
-COPY src /tmp/src/
-
-WORKDIR /tmp/
-
-RUN mvn package
-
-#pull base image
-
-FROM eclipse-temurin:11
-
-#expose port 8080
+FROM  openjdk:17-alpine
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} organization-service-1.1.jar
 EXPOSE 8080
-
-#default command
-CMD java -jar /data/organization-service-1.1.jar
-
-#copy vmware to docker image from builder image
-
-COPY --from=maven_build /tmp/target/organization-service-1.1.jar /data/organization-service-1.1.jar
+ENTRYPOINT ["java","-jar","/organization-service-1.1.jar"]

@@ -52,8 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .exceptionHandling().authenticationEntryPoint(invalidLoginAttemptHandler)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/","/authenticate/**")
-                .permitAll()
+                .antMatchers("/","/authenticate/**").permitAll()
                 .anyRequest().authenticated();
          http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 

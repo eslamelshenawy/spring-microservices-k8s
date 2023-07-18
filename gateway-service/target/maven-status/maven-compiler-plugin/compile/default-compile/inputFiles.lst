@@ -1,0 +1,3 @@
+/home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/api/GatewayApi.java
+/home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/GatewayApplication.java
+/home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/config/RibbonConfiguration.java

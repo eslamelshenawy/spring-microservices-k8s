@@ -1,0 +1,5 @@
+/home/work/spring-microservices-k8s/user-service/src/main/java/vmware/services/user/controller/UserController.java
+/home/work/spring-microservices-k8s/user-service/src/main/java/vmware/services/user/config/RibbonConfiguration.java
+/home/work/spring-microservices-k8s/user-service/src/main/java/vmware/services/user/UserApplication.java
+/home/work/spring-microservices-k8s/user-service/src/main/java/vmware/services/user/repository/UserRepository.java
+/home/work/spring-microservices-k8s/user-service/src/main/java/vmware/services/user/model/User.java

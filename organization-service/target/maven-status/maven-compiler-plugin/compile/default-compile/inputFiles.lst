@@ -1,0 +1,5 @@
+/home/work/spring-microservices-k8s/organization-service/src/main/java/vmware/services/organization/model/Organization.java
+/home/work/spring-microservices-k8s/organization-service/src/main/java/vmware/services/organization/OrganizationApplication.java
+/home/work/spring-microservices-k8s/organization-service/src/main/java/vmware/services/organization/config/RibbonConfiguration.java
+/home/work/spring-microservices-k8s/organization-service/src/main/java/vmware/services/organization/repository/OrganizationRepository.java
+/home/work/spring-microservices-k8s/organization-service/src/main/java/vmware/services/organization/controller/OrganizationController.java

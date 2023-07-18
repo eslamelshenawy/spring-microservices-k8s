@@ -1,0 +1,5 @@
+vmware/services/organization/repository/OrganizationRepository.class
+vmware/services/organization/controller/OrganizationController.class
+vmware/services/organization/OrganizationApplication.class
+vmware/services/organization/model/Organization.class
+vmware/services/organization/config/RibbonConfiguration.class

@@ -1,0 +1,3 @@
+vmware/services/gateway/GatewayApplication.class
+vmware/services/gateway/config/RibbonConfiguration.class
+vmware/services/gateway/api/GatewayApi.class

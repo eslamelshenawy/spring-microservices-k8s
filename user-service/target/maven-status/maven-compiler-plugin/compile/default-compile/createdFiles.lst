@@ -1,0 +1,5 @@
+vmware/services/user/config/RibbonConfiguration.class
+vmware/services/user/controller/UserController.class
+vmware/services/user/model/User.class
+vmware/services/user/UserApplication.class
+vmware/services/user/repository/UserRepository.class

@@ -2,7 +2,7 @@
 ### Clone repository
 
 ```bash
-git clone git@github.com:AndriyKalashnykov/spring-microservices-k8s.git
+git clone 
 ```
 ## minikube start 
 ```bash

@@ -1,8 +1,8 @@
-package vmware.services.organization.repository;
+package vmware.services.user.repository;
 
-import org.springframework.data.repository.CrudRepository;
-import vmware.services.organization.model.Organization;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import vmware.services.user.model.User;
 
-public interface OrganizationRepository extends CrudRepository<Organization, String> {
+public interface UserRepository extends MongoRepository<User, String> {
 	
 }

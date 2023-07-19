@@ -4,36 +4,31 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import vmware.services.user.model.User;
-import vmware.services.user.repository.UserRepository;
-
-import java.util.Optional;
+import vmware.services.organization.model.Organization;
+import vmware.services.organization.repository.OrganizationRepository;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+public class OrganizationController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-
+	private static final Logger LOGGER = LoggerFactory.getLogger(OrganizationController.class);
+	
 	@Autowired
-	UserRepository repository;
-
+	OrganizationRepository repository;
 	@PostMapping
-	public User add(@RequestBody User user) {
-		LOGGER.info("User add: {}", user);
-		return repository.save(user);
+	public Organization add(@RequestBody Organization organization) {
+		LOGGER.info("Organization add: {}", organization);
+		return repository.save(organization);
 	}
-
+	
 	@GetMapping
-	public Iterable<User> findAll() {
-		LOGGER.info("User find");
+	public Iterable<Organization> findAll() {
+		LOGGER.info("Organization find");
 		return repository.findAll();
 	}
-
+	
 	@GetMapping("/{id}")
-	public Optional<User> findById(@PathVariable("id") String id) {
-		LOGGER.info("User find: id={}", id);
-		return repository.findById(id);
+	public Organization findById(@PathVariable("id") String id) {
+		LOGGER.info("Organization find: id={}", id);
+		return repository.findById(id).get();
 	}
-
 }

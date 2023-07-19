@@ -1,10 +1,8 @@
-package vmware.services.user.repository;
+package vmware.services.organization.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import vmware.services.user.model.User;
+import org.springframework.data.repository.CrudRepository;
+import vmware.services.organization.model.Organization;
 
-import java.util.Optional;
-
-public interface UserRepository extends MongoRepository<User, String> {
-    public Optional<User> findByEmail(String email);
+public interface OrganizationRepository extends CrudRepository<Organization, String> {
+	
 }

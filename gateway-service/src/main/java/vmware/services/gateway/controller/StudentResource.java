@@ -20,7 +20,6 @@ private final StudentRepository studentRepository;
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') OR hasRole('USER')")
     public List<Student> getAllStudents(){
         return studentRepository.findAll();
     }

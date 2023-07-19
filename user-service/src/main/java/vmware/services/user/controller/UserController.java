@@ -10,6 +10,7 @@ import vmware.services.user.repository.UserRepository;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
@@ -30,9 +31,9 @@ public class UserController {
 	}
 
 	@GetMapping("/{id}")
-	public User findById(@PathVariable("id") String id) {
+	public Optional<User> findById(@PathVariable("id") String id) {
 		LOGGER.info("User find: id={}", id);
-		return repository.findById(id).get();
+		return repository.findById(id);
 	}
 
 }

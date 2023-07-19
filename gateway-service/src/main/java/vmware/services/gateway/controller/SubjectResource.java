@@ -20,7 +20,6 @@ public class SubjectResource {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
     public List<Subject> getAllSubjects(){
         return subjectRepository.findAll();
     }

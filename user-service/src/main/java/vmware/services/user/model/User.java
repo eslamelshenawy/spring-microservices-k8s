@@ -18,12 +18,11 @@ import javax.persistence.GenerationType;
 @Document(collection = "users")
 public class User {
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String id;
 
 	@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
 	private String email;
 	private String password;
-	private String fullname;
 	private boolean enabled;
 }

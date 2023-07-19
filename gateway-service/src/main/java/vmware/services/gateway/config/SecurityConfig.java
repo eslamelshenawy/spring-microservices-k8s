@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .exceptionHandling().authenticationEntryPoint(invalidLoginAttemptHandler)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/authenticate/**","/swagger-ui.html","/user")
+                .antMatchers("/authenticate/**","/swagger-ui.html")
                 .permitAll()
                 .anyRequest().authenticated();
          http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

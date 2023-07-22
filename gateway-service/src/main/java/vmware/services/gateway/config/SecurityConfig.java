@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import vmware.services.gateway.filter.JwtAuthenticationFilter;
 import vmware.services.gateway.service.InvalidLoginAttemptHandler;
 import vmware.services.gateway.service.UserAuthDetailsService;
@@ -44,6 +45,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         return super.authenticationManagerBean();
     }
 
+    private static final String[] PUBLIC_PATH = {
+            "/authenticate/**",
+            "/v3/api-docs/**",
+            "/v2/api-docs/**",
+            "/swagger-ui/**",
+            "/swagger-ui.html"
+    };
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -52,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .exceptionHandling().authenticationEntryPoint(invalidLoginAttemptHandler)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/authenticate/**","/swagger-ui.html")
+                .antMatchers(PUBLIC_PATH)
                 .permitAll()
                 .anyRequest().authenticated();
          http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

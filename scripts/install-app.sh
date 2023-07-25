@@ -14,6 +14,9 @@ kubectl config use-context $CLUSTER1_NAME
 kubectl apply -n $NAMESPACE_ORGANIZATION -f organization-configmap.yaml
 kubectl apply -n $NAMESPACE_ORGANIZATION -f organization-secret.yaml
 kubectl apply -n $NAMESPACE_ORGANIZATION -f organization-deployment.yaml
+kubectl apply -n $NAMESPACE_ORGANIZATION -f department-configmap.yaml
+kubectl apply -n $NAMESPACE_ORGANIZATION -f department-secret.yaml
+kubectl apply -n $NAMESPACE_ORGANIZATION -f department-deployment.yaml
 kubectl apply -n $NAMESPACE_USER -f user-configmap.yaml
 kubectl apply -n $NAMESPACE_USER -f user-secret.yaml
 kubectl apply -n $NAMESPACE_USER -f user-deployment.yaml

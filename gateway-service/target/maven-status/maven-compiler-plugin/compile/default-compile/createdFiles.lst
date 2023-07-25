@@ -4,6 +4,7 @@ vmware/services/gateway/controller/AuthResource.class
 vmware/services/gateway/service/InvalidLoginAttemptHandler.class
 vmware/services/gateway/exception/ExceptionHandler.class
 vmware/services/gateway/entity/Student.class
+vmware/services/gateway/config/SpringdocConfig.class
 vmware/services/gateway/entity/Subject.class
 vmware/services/gateway/model/UserPrincipal.class
 vmware/services/gateway/dto/SignupRequest.class

@@ -13,6 +13,7 @@
 /home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/config/RibbonConfiguration.java
 /home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/repository/StudentRepository.java
 /home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/model/UserPrincipal.java
+/home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/config/SpringdocConfig.java
 /home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/repository/UserRepository.java
 /home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/exception/ExceptionHandler.java
 /home/work/spring-microservices-k8s/gateway-service/src/main/java/vmware/services/gateway/dto/SignupRequest.java
